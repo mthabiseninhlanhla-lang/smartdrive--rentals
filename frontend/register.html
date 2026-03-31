@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register - SmartDrive Rentals</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="navbar"></div>
+
+  <div class="container">
+    <div class="card" style="max-width: 500px; margin: auto;">
+      <h2>Register</h2>
+      <form id="registerForm">
+        <input type="text" id="full_name" placeholder="Full Name" required />
+        <input type="email" id="email" placeholder="Email" required />
+        <input type="password" id="password" placeholder="Password" required />
+        <input type="text" id="phone" placeholder="Phone" />
+        <select id="role" required>
+          <option value="customer">Customer</option>
+          <option value="provider">Provider</option>
+        </select>
+        <button type="submit">Register</button>
+      </form>
+      <div id="message"></div>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script>
+    renderNavbar();
+    setupRegister();
+  </script>
+</body>
+</html>

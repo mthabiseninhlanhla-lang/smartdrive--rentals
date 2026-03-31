@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us - SmartDrive Rentals</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">SmartDrive Rentals</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="vehicles.html">Cars</a>
+      <a href="booking.html">Booking</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="page-header">
+      <h1>Contact Us</h1>
+      <p>Reach out to SmartDrive Rentals for bookings, support, or general enquiries.</p>
+    </section>
+
+    <div class="booking-layout">
+      <div class="selected-car-box">
+        <h2>Our Contact Details</h2>
+        <p><strong>Company:</strong> SmartDrive Rentals</p>
+        <p><strong>Email:</strong> Mayor@smartdrive.com</p>
+        <p><strong>Phone:</strong> +27 82 713 2262</p>
+        <p><strong>Address:</strong> Nelspruit 1200, Mbombela, South Africa</p>
+        <p><strong>Working Hours:</strong> Weekdays (08:00- 18:00)- Weekends (09:00-15:00)</p>
+      </div>
+
+      <div class="booking-form-box">
+        <h2>Send Us a Message</h2>
+        <form id="contactForm">
+          <input type="text" id="contactName" placeholder="Your Full Name" required />
+          <input type="email" id="contactEmail" placeholder="Your Email Address" required />
+          <input type="text" id="contactSubject" placeholder="Subject" required />
+          <textarea id="contactMessage" placeholder="Write your message here..." required></textarea>
+          <button type="submit" class="btn full-btn">Send Message</button>
+        </form>
+
+        <div id="contactResponse"></div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 SmartDrive Rentals. All rights reserved.</p>
+  </footer>
+
+  <script src="js/contact.js"></script>
+</body>
+</html>

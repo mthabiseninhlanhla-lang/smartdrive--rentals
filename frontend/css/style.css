@@ -1,0 +1,577 @@
+/* =========================
+   SMARTDRIVE RENTALS
+   Professional UI Theme
+   ========================= */
+
+:root {
+  --primary: #0f172a;
+  --primary-soft: #1e293b;
+  --secondary: #334155;
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --success: #16a34a;
+  --danger: #dc2626;
+  --warning: #f59e0b;
+
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --surface-2: #f1f5f9;
+  --border: #e2e8f0;
+  --text: #0f172a;
+  --muted: #64748b;
+
+  --shadow-sm: 0 2px 10px rgba(15, 23, 42, 0.05);
+  --shadow-md: 0 10px 30px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 18px 40px rgba(15, 23, 42, 0.12);
+
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
+
+  --container: 1180px;
+  --transition: 0.25s ease;
+}
+
+/* =========================
+   RESET
+   ========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to bottom, #f8fafc, #eef4fb);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--accent-hover);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+/* =========================
+   LAYOUT
+   ========================= */
+
+.container {
+  width: min(92%, var(--container));
+  margin: 0 auto;
+  padding: 32px 0 48px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.col {
+  width: 100%;
+}
+
+/* =========================
+   NAVBAR
+   ========================= */
+
+.navbar,
+#navbar .navbar {
+  background: rgba(15, 23, 42, 0.96);
+  color: white;
+  padding: 16px 4%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--shadow-md);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(8px);
+}
+
+.logo {
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  color: white;
+}
+
+.navbar nav,
+#navbar nav {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.navbar nav a,
+#navbar nav a {
+  color: #e2e8f0;
+  font-weight: 500;
+  padding: 10px 14px;
+  border-radius: 10px;
+  transition: var(--transition);
+}
+
+.navbar nav a:hover,
+#navbar nav a:hover,
+.navbar nav a.active {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+/* =========================
+   HERO
+   ========================= */
+
+.hero {
+  text-align: center;
+  padding: 70px 30px;
+  background: linear-gradient(135deg, #0f172a, #1d4ed8);
+  color: white;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+
+.hero p {
+  max-width: 700px;
+  margin: 0 auto 24px;
+  font-size: 1.05rem;
+  color: #dbeafe;
+}
+
+/* =========================
+   CARDS
+   ========================= */
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.card h2,
+.card h3 {
+  margin-bottom: 12px;
+  color: var(--primary);
+}
+
+.card p {
+  color: var(--muted);
+}
+
+/* =========================
+   PAGE HEADER
+   ========================= */
+
+.page-header {
+  margin-bottom: 28px;
+}
+
+.page-header h1 {
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+.page-header p {
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+/* =========================
+   FORMS
+   ========================= */
+
+form {
+  display: grid;
+  gap: 16px;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 14px 15px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #fff;
+  color: var(--text);
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+}
+
+textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+/* =========================
+   BUTTONS
+   ========================= */
+
+button,
+.btn {
+  border: none;
+  background: var(--accent);
+  color: white;
+  padding: 13px 18px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.2);
+}
+
+button:hover,
+.btn:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+button:active,
+.btn:active {
+  transform: translateY(0);
+}
+
+.full-btn {
+  width: 100%;
+}
+
+/* =========================
+   DASHBOARDS
+   ========================= */
+
+h2 {
+  color: var(--primary);
+  margin-bottom: 16px;
+}
+
+#bookingList,
+#myVehicles,
+#vehicleList {
+  margin-top: 18px;
+}
+
+/* =========================
+   BOOKING / CONTACT LAYOUT
+   ========================= */
+
+.booking-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.selected-car-box,
+.booking-form-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+}
+
+.selected-car-box h2,
+.booking-form-box h2 {
+  margin-bottom: 16px;
+  font-size: 1.3rem;
+  color: var(--primary);
+}
+
+.selected-car-box p,
+.booking-form-box p {
+  color: var(--muted);
+}
+
+/* =========================
+   FILTERS
+   ========================= */
+
+.filters {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 24px;
+  padding: 22px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.filter-group label {
+  font-weight: 600;
+  color: var(--secondary);
+  font-size: 0.95rem;
+}
+
+/* =========================
+   RESULTS BAR
+   ========================= */
+
+.results-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.results-bar p {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+/* =========================
+   VEHICLE GRID
+   ========================= */
+
+.vehicle-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+}
+
+.vehicle-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.vehicle-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.vehicle-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  background: var(--surface-2);
+}
+
+.vehicle-card-content {
+  padding: 18px;
+}
+
+.vehicle-card h3 {
+  margin-bottom: 8px;
+  color: var(--primary);
+}
+
+.vehicle-card p {
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.vehicle-price {
+  font-weight: 700;
+  color: var(--accent);
+  margin: 12px 0;
+  font-size: 1.05rem;
+}
+
+/* =========================
+   MESSAGE BOXES
+   ========================= */
+
+#message,
+#providerMessage,
+#bookingMessage,
+#contactResponse {
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  display: none;
+}
+
+.message-success {
+  display: block !important;
+  background: #ecfdf3;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+
+.message-error {
+  display: block !important;
+  background: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+.message-info {
+  display: block !important;
+  background: #eff6ff;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
+}
+
+/* =========================
+   TABLE / LIST STYLE
+   ========================= */
+
+.table-like-item,
+.booking-item,
+.vehicle-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow-sm);
+}
+
+.booking-item h3,
+.vehicle-item h3 {
+  margin-bottom: 8px;
+  color: var(--primary);
+}
+
+.booking-item p,
+.vehicle-item p {
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+
+.footer {
+  margin-top: 40px;
+  background: var(--primary);
+  color: #cbd5e1;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.95rem;
+}
+
+/* =========================
+   UTILITIES
+   ========================= */
+
+.text-center {
+  text-align: center;
+}
+
+.mt-1 { margin-top: 8px; }
+.mt-2 { margin-top: 16px; }
+.mt-3 { margin-top: 24px; }
+.mb-1 { margin-bottom: 8px; }
+.mb-2 { margin-bottom: 16px; }
+.mb-3 { margin-bottom: 24px; }
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 992px) {
+  .row,
+  .booking-layout,
+  .filters {
+    grid-template-columns: 1fr;
+  }
+
+  .navbar,
+  #navbar .navbar {
+    flex-direction: column;
+    gap: 14px;
+    align-items: flex-start;
+  }
+
+  .navbar nav,
+  #navbar nav {
+    width: 100%;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    width: 94%;
+    padding-top: 22px;
+  }
+
+  .card,
+  .selected-car-box,
+  .booking-form-box {
+    padding: 20px;
+  }
+
+  .hero {
+    padding: 48px 20px;
+  }
+
+  .navbar nav,
+  #navbar nav {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .navbar nav a,
+  #navbar nav a {
+    width: 100%;
+  }
+
+  button,
+  .btn {
+    width: 100%;
+  }
+}

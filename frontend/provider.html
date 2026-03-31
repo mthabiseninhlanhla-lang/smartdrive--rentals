@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Provider Dashboard</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="navbar"></div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <h2>Add Vehicle</h2>
+          <form id="vehicleForm">
+            <input type="text" id="brand" placeholder="Brand" required />
+            <input type="text" id="model" placeholder="Model" required />
+            <input type="number" id="year" placeholder="Year" required />
+            <input type="number" id="price_per_day" placeholder="Price Per Day" required />
+            <input type="text" id="location" placeholder="Location" required />
+            <button type="submit">Add Vehicle</button>
+          </form>
+          <div id="providerMessage"></div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card">
+          <h2>My Vehicles</h2>
+          <div id="myVehicles"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/provider.js"></script>
+  <script>
+    renderNavbar();
+    setupProviderPage();
+  </script>
+</body>
+</html>

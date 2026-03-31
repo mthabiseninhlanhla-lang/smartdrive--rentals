@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Booking - SmartDrive Rentals</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">SmartDrive Rentals</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="vehicles.html">Cars</a>
+      <a href="booking.html">Booking</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="page-header">
+      <h1>Book Your Car</h1>
+      <p>Complete the form below to book your selected car.</p>
+    </section>
+
+    <div class="booking-layout">
+      <div class="selected-car-box">
+        <h2>Selected Car</h2>
+        <div id="selectedCarDetails">
+          <p>No car selected yet.</p>
+          <p><a href="vehicles.html">Go to Vehicles Page</a></p>
+        </div>
+      </div>
+
+      <div class="booking-form-box">
+        <h2>Booking Form</h2>
+        <form id="bookingForm">
+          <input type="text" id="customerName" placeholder="Full Name" required />
+          <input type="email" id="customerEmail" placeholder="Email Address" required />
+          <input type="tel" id="customerPhone" placeholder="Phone Number" required />
+          <input type="date" id="pickupDate" required />
+          <input type="date" id="returnDate" required />
+          <input type="text" id="pickupLocation" placeholder="Pickup Location" required />
+          <textarea id="notes" placeholder="Additional notes (optional)"></textarea>
+          <button type="submit" class="btn full-btn">Confirm Booking</button>
+        </form>
+
+        <div id="bookingMessage"></div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 SmartDrive Rentals. All rights reserved.</p>
+  </footer>
+
+  <script src="js/booking.js"></script>
+</body>
+</html>

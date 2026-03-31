@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Available Vehicles | SmartDrive Rentals South Africa</title>
+  <meta
+    name="description"
+    content="Browse 20+ reliable rental vehicles in South Africa from SmartDrive Rentals. Find compact cars, sedans, SUVs, bakkies, minibuses and luxury options."
+  />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    :root {
+      --primary: #0f172a;
+      --secondary: #1e293b;
+      --accent: #0ea5e9;
+      --accent-dark: #0284c7;
+      --light: #f8fafc;
+      --white: #ffffff;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --success: #16a34a;
+      --shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+      --radius: 16px;
+      --container-width: 1200px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: #f1f5f9;
+      color: #0f172a;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .navbar {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 0.3px;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--muted);
+      font-weight: 600;
+      padding-bottom: 4px;
+      transition: 0.3s;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--accent);
+      border-bottom: 2px solid var(--accent);
+    }
+
+    .hero {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(14, 165, 233, 0.8)),
+        url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=80") center/cover;
+      color: white;
+      padding: 80px 20px 60px;
+    }
+
+    .hero-content {
+      max-width: var(--container-width);
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      max-width: 700px;
+      font-size: 1.05rem;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .container {
+      max-width: var(--container-width);
+      margin: 0 auto;
+      padding: 40px 20px 60px;
+    }
+
+    .filters {
+      background: var(--white);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-top: -35px;
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+
+    .filter-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .filter-group label {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--secondary);
+    }
+
+    .filter-group input,
+    .filter-group select {
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: 0.95rem;
+      background: white;
+      outline: none;
+      transition: 0.2s ease;
+    }
+
+    .filter-group input:focus,
+    .filter-group select:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.12);
+    }
+
+    .results-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 30px 0 20px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .results-bar p {
+      font-weight: 700;
+      color: var(--secondary);
+    }
+
+    .badge {
+      background: #e0f2fe;
+      color: var(--accent-dark);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .vehicle-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 24px;
+    }
+
+    .vehicle-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .vehicle-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 35px rgba(15, 23, 42, 0.12);
+    }
+
+    .vehicle-card img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .vehicle-content {
+      padding: 18px;
+    }
+
+    .vehicle-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .vehicle-name {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .vehicle-type {
+      display: inline-block;
+      background: #f1f5f9;
+      color: var(--secondary);
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .vehicle-specs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 14px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .vehicle-price {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--accent-dark);
+      margin-bottom: 14px;
+    }
+
+    .vehicle-price span {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+
+    .vehicle-actions {
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-block;
+      width: 100%;
+      text-align: center;
+      padding: 12px;
+      border-radius: 10px;
+      font-weight: 700;
+      transition: 0.25s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-dark);
+    }
+
+    .btn-secondary {
+      background: #e2e8f0;
+      color: var(--secondary);
+    }
+
+    .btn-secondary:hover {
+      background: #cbd5e1;
+    }
+
+    .empty-state {
+      background: white;
+      border: 1px dashed #cbd5e1;
+      border-radius: var(--radius);
+      padding: 30px;
+      text-align: center;
+      color: var(--muted);
+      box-shadow: var(--shadow);
+    }
+
+    footer {
+      background: var(--primary);
+      color: rgba(255, 255, 255, 0.85);
+      text-align: center;
+      padding: 24px 20px;
+      margin-top: 60px;
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 16px 20px;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .vehicle-specs {
+        grid-template-columns: 1fr;
+      }
+
+      .vehicle-actions {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">SmartDrive Rentals</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="vehicles.html" class="active">Vehicles</a>
+      <a href="booking.html">Booking</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Available Vehicles in South Africa</h1>
+      <p>
+        Choose from our fleet of reliable, affordable and premium rental vehicles.
+        Perfect for city travel, family trips, business transport and long-distance driving across South Africa.
+      </p>
+    </div>
+  </section>
+
+  <main class="container">
+    <section class="filters">
+      <div class="filter-group">
+        <label for="searchInput">Search Vehicle</label>
+        <input type="text" id="searchInput" placeholder="Search by brand or model..." />
+      </div>
+
+      <div class="filter-group">
+        <label for="typeFilter">Filter by Type</label>
+        <select id="typeFilter">
+          <option value="all">All Types</option>
+          <option value="Compact">Compact</option>
+          <option value="Hatchback">Hatchback</option>
+          <option value="Sedan">Sedan</option>
+          <option value="SUV">SUV</option>
+          <option value="4x4 SUV">4x4 SUV</option>
+          <option value="Luxury Sedan">Luxury Sedan</option>
+          <option value="Pickup">Pickup / Bakkie</option>
+          <option value="Minibus">Minibus</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="priceFilter">Maximum Price Per Day</label>
+        <select id="priceFilter">
+          <option value="all">No Limit</option>
+          <option value="500">Up to R500</option>
+          <option value="700">Up to R700</option>
+          <option value="900">Up to R900</option>
+          <option value="1200">Up to R1200</option>
+          <option value="1600">Up to R1600</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="results-bar">
+      <p id="resultsCount">Showing 0 vehicles</p>
+      <span class="badge">South Africa Fleet • 20+ Vehicles</span>
+    </section>
+
+    <section>
+      <div id="vehicleList" class="vehicle-grid"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 SmartDrive Rentals South Africa. All rights reserved.</p>
+  </footer>
+
+  <script src="js/vehicles.js"></script>
+</body>
+</html>
